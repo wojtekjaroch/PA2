@@ -105,9 +105,11 @@ def children_number_in_date(rows, date, hotel):
     :returns: number of chidren
     :rtype: int
     """
-    children_by_date = 0
+    number_of_children = 0
     for row in rows:
-        if row[4] 
+        if row[1] == date and row[0] == hotel:
+            number_of_children = number_of_children + int(row[4])
+    return number_of_children
 
 
 def display_reservation(rows, date):
