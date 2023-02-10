@@ -122,4 +122,6 @@ def display_reservation(rows, date):
 
     Please get check out date based on arrival_date and booked nights
     """
-    pass
+    for row in rows:
+        line = "|".join(row)
+        line.write(line + "\n")
