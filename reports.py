@@ -80,7 +80,21 @@ def get_rows_by_date(rows, date_in, date_out):
     :returns: list of booking in date range betwee date_in and date_out
     :rtype: list
     """
-    pass
+    rows_by_date =[]
+    date_in_value_l = date_in.split("/")
+    date_in_value_s = int(date_in_value_l[2+date_in_value_l[0]+date_in_value_l])
+    date_out_value_l = date_out.split("/")
+    date_out_value_s = int(date_out_value_l[2]+date_out_value_l[0]+date_out_value_l[1])
+
+    for row in rows:
+        date_nights_l = row[1].split("/")
+        date_nights_s = int(date_nights_l[2]+date_nights_l[0]+date_nights_l[1])
+
+        if date_in_value_s < date_nights_s < date_out_value_s:
+            rows_by_date.append(row)
+    return rows_by_date
+
+
 
 
 def children_number_in_date(rows, date, hotel):
@@ -91,7 +105,9 @@ def children_number_in_date(rows, date, hotel):
     :returns: number of chidren
     :rtype: int
     """
-    pass
+    children_by_date = 0
+    for row in rows:
+        if row[4] 
 
 
 def display_reservation(rows, date):
