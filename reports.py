@@ -105,11 +105,23 @@ def children_number_in_date(rows, date, hotel):
     :returns: number of chidren
     :rtype: int
     """
-    number_of_children = 0
+    child_num_in_date = 0
+    date_in = int(date.split("/")[2]+date.split("/")[0]+date.split("/")[1])
+
     for row in rows:
-        if row[1] == date and row[0] == hotel:
-            number_of_children = number_of_children + int(row[4])
-    return number_of_children
+        date_start = int(row[1].split("/")[2]+row[1].split("/")[0]+row[1].split("/")[1])
+        date_end = int(row[1].split("/")[2]+row[1].split("/")[0]+row[1].split("/")[1]) + int(row[2])
+        if row[0] == hotel and date_start <= date_in <= date_end:
+            child_num_in_date = child_num_in_date + int(row[4])
+    return child_num_in_date
+
+
+
+
+    # for row in rows:
+    #     if row[1] == date and row[0] == hotel:
+    #         number_of_children = number_of_children + int(row[4])
+    # return number_of_children
 
 
 def display_reservation(rows, date):
